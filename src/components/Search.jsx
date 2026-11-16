@@ -1,5 +1,5 @@
 
-export default function Search({funcSubmitEvent }) {
+export default function Search({funcSubmitEvent, defaultValue = "" }) {
     return (
         <form
             onSubmit={(e) => {
@@ -10,6 +10,7 @@ export default function Search({funcSubmitEvent }) {
             className="w-full px-6 py-4 flex gap-2 justify-center items-center flex-row"
         >
             <input
+                defaultValue={defaultValue}
                 name="query"
                 placeholder="Search any character by name"
                 className="w-full bg-white text-xl p-4 border border-slate-600 rounded-xl"

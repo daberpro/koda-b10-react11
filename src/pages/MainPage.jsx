@@ -54,7 +54,7 @@ export default function MainPage() {
             <p className="p-6 text-xl max-w-200 text-slate-500">
                 Search any rick and morty charachters from any episodes
             </p>
-            <Search characterData={characters} funcSubmitEvent={searchChar} />
+            <Search defaultValue={params.get("q")} funcSubmitEvent={searchChar} />
             <div className="grid w-full p-6 grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4 justify-center items-center content-center">
                 {filter.map((data) => {
                     return (
