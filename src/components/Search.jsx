@@ -1,31 +1,16 @@
-import { useEffect, useState } from "react";
 
-export default function Search({ characterData, funcSetCharData }) {
-    const [query, setQuery] = useState("");
-
-    useEffect(() => {
-        funcSetCharData(
-            characterData.filter((char) => {
-                return char.name.toLowerCase().includes(query);
-            }),
-        );
-    }, [query]);
-
+export default function Search({funcSubmitEvent }) {
     return (
         <form
             onSubmit={(e) => {
                 e.preventDefault();
-                funcSetCharData(
-                    characterData.filter((char) => {
-                        return char.name.toLowerCase().includes(query);
-                    }),
-                );
+                funcSubmitEvent(e.target.query.value);
             }}
             action="#"
             className="w-full px-6 py-4 flex gap-2 justify-center items-center flex-row"
         >
             <input
-                onInput={(e) => setQuery(e.target.value)}
+                name="query"
                 placeholder="Search any character by name"
                 className="w-full bg-white text-xl p-4 border border-slate-600 rounded-xl"
                 type="text"
