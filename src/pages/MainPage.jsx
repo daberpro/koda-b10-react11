@@ -11,6 +11,10 @@ export default function MainPage() {
     const [params, setParams] = useSearchParams();
 
     function searchChar(query) {
+        if (!query) {
+            setParams(undefined);
+            return;
+        }
         setParams({q: query});
     }
 
