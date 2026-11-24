@@ -1,12 +1,12 @@
 import placeholderImage from "../placeholder.svg";
 
-export default function Card({ imageUrl, name }) {
+export default function Card({ imageUrl, name, ...rest }) {
     function onError(e) {
         e.target.src = placeholderImage;
     }
 
     return (
-        <div className="w-full shadow-lg rounded-2xl h-full flex items-center justify-between flex-col bg-white border border-slate-700">
+        <div {...rest} className="w-full cursor-pointer shadow-lg rounded-2xl h-full flex items-center justify-between flex-col bg-white border border-slate-700">
             <img
                 onError={onError}
                 className="w-full rounded-xl"
